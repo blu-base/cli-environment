@@ -1,0 +1,24 @@
+"" Custom vim settings, not specific for a plugin
+""
+set nocompatible "" Allow arrow usage
+set backspace=indent,eol,start "" Backspace works as delete
+
+
+"" Allow File-type specific indenting
+filetype plugin indent on
+"" file type detection 
+filetype on
+
+"" Hybrid line numbering. Relative + current absolute
+set number
+set relativenumber
+
+"" Display all whitespace characters
+set list listchars=tab:»·,trail:·,nbsp:·
+
+" Autocomplete with dictionary words when spell check is on
+set complete+=kspell
+
+" When the type of shell script is /bin/sh, assume a POSIX-compatible
+" shell for syntax highlighting purposes.
+let g:is_posix = 1
