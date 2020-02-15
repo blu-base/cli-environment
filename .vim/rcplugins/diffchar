@@ -1,0 +1,11 @@
+" Sort motion - sort based on motion or text object
+
+Plug 'rickhowe/diffchar.vim'
+
+" Simgle word diff
+let g:DiffUnit="Word1"
+
+
+"
+
+" vim:ft=vim

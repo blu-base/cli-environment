@@ -13,6 +13,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 ## Getting the colorscheme solarized
 
 git clone https://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle/vim-colors-solarized
+
+mkdir -p ~/.vim/colors/
+mkdir -p ~/.vim/autoload/
 cp  ~/.vim/bundle/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/
 cp  ~/.vim/bundle/vim-colors-solarized/autoload/togglebg.vim ~/.vim/autoload/
 
@@ -37,4 +40,4 @@ fi
 
 
 echo -e "\n\n\n"
-echo "Finally, open vim and run PlugInstall to download plugins, and check with PlugStatus."
+echo "Finally, open vim and run :PlugInstall to download plugins, and check with :PlugStatus."

@@ -1,0 +1,39 @@
+" python-mode: PyLint, Rope, Pydoc, breakpoints from box.
+
+
+Plug 'python-mode/python-mode', { 'for': 'python' }
+
+" use only py3
+let g:pymode_python = 'python3'
+
+" Rope refactoring operations, code completion and code assists.
+let g:pymode_rope = 1
+let g:pymode_rope_completion = 1
+let g:pymode_rope_complete_on_dot = 1
+let g:pymode_rope_completion_bind = '<C-Space>'
+
+"Setup default python options, see :help pymode
+let g:pymode_options = 1
+
+"Enable colorcolumn display at max_line_length
+let g:pymode_options_colorcolumn = 1
+
+"PEP8-compatible python indent.
+let g:pymode_indent = 1
+
+"Fast and usual python folding in Vim for pymode
+let g:pymode_folding = 1
+
+
+" Enable pymode motions. C for Class, M for Method.
+let g:pymode_motion = 1
+
+
+
+" Turn on code checking.
+let g:pymode_lint = 1
+" Default code checkers
+let g:pymode_lint_checkers = ['pep8']
+
+
+" vim:ft=vim
