@@ -1,0 +1,6 @@
+
+if has_key(plugs, "vim-solarized8")
+colorscheme solarized8
+endif
+
+" vim:ft=vim

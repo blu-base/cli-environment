@@ -1,0 +1,22 @@
+" Solarized 8: True Colors
+
+Plug 'lifepillar/vim-solarized8'
+
+syntax enable
+
+
+" Terminal compatibility
+let g:solarized_termcolors=256
+
+
+set background=dark
+
+" Colorscheme needs to be loaded after "call plug#end()"
+" Therefore, it is to be found in .vim/rcpost/solarized
+" colorscheme solarized8
+
+
+
+
+
+" vim:ft=vim

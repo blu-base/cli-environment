@@ -21,5 +21,5 @@ call plug#begin('~/.vim/bundle')
 call s:SourceConfigFilesIn('rcplugins')
 call plug#end()
 
-" another remote config for non-plugin settings
-call s:SourceConfigFilesIn('rcfiles')
+" another remote config for post-plugin settings
+call s:SourceConfigFilesIn('rcpost')

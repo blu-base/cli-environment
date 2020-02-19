@@ -3,25 +3,17 @@
 ## Get this script's location
 LOCATION="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+RED='\033[0;31m'
+NC='\033[0m' # No Color
 
-## Downloading the vim.plug Plugin manager
+
+echo -e "Downloading the vim.plug Plugin manager:\n"
+
 ## https://github.com/junegunn/vim-plug
-##
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+echo -e "\nPreparing directories"
 
-## Getting the colorscheme solarized
-
-git clone https://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle/vim-colors-solarized
-
-mkdir -p ~/.vim/colors/
-mkdir -p ~/.vim/autoload/
-cp  ~/.vim/bundle/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/
-cp  ~/.vim/bundle/vim-colors-solarized/autoload/togglebg.vim ~/.vim/autoload/
-
-## Copying the config files into ~/.vim/
-cp -r ${LOCATION}/.vim/rcplugins ~/.vim/
-cp -r ${LOCATION}/.vim/rcfiles ~/.vim/
 
 
 
@@ -31,13 +23,35 @@ then
 	cat ${LOCATION}/vimrc > ~/.vimrc
 
 else
-	echo "WARNING. \".vimrc\" is already present in your home directory."
+	echo -e "${RED}WARNING.${NC} \".vimrc\" is already present in your home directory."
 	echo "Set up the  vimrc manually!"
-	echo "{LOCATION}/vimrc"
+	echo "Use ${LOCATION}/vimrc"
+	echo "Then, in vim run :PlugInstall manually"
+	exit 1
 fi
 
+if [ -f ~/.vim/ ]
+then
+	echo -e "${RED}WARNING.$NC There is already .vim directory. Do you want to continue? (y/n)"
+	read answer
+	case $answer in
+		y | Y | yes | Yes ) continue;;
+		*) echo "Stopping now. remove .vim (and .vimrc) and rerun the script.";
+			echo "Or manually run:";
+			echo "cp -r ${LOCATION}/.vim/rc* ~/.vim/";
+			echo "Then, in vim run :PlugInstall manually";
+			exit 1;;
+	esac
+fi
 
+## Copying the config files into ~/.vim/
+cp -r ${LOCATION}/.vim/rc* ~/.vim/
 
 
 echo -e "\n\n\n"
-echo "Finally, open vim and run :PlugInstall to download plugins, and check with :PlugStatus."
+echo    "Installing Plugins to vim."
+echo -e "${RED}Ignore the first error message regarding colorscheme${NC}"
+
+vim +'PlugInstall --sync' +qa
+
+echo    "Finished."
