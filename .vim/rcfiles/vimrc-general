@@ -26,6 +26,10 @@ let g:is_posix = 1
 set wrap
 set linebreak
 
+" tab width
+set tabstop=2
+set shiftwidth=2
+
 " set leader char
 let mapleader='\'
 
