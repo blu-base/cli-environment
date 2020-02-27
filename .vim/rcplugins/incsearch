@@ -1,0 +1,33 @@
+" incsearch.vim incrementally highlights ALL pattern matches unlike default 'incsearch'.
+" highlights seach string while searching
+
+Plug 'haya14busa/incsearch.vim'
+
+" Basic Usage:
+
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+
+" Farewell, nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>! This feature turns 'hlsearch' off automatically after searching-related motions.
+" :h g:incsearch#auto_nohlsearch
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
+" Scroll-like feature while incremental searching
+" <Over>(incsearch-scroll-f) 	scroll to the next page match. default: <C-j>
+" <Over>(incsearch-scroll-b) 	scroll to the previous page match. default: <C-k>
+
+
+" also highlight replace search string
+set incsearch
+
+
+" vim:ft=vim

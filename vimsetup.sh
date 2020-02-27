@@ -48,10 +48,16 @@ fi
 cp -r ${LOCATION}/.vim/rc* ~/.vim/
 
 
+echo "Checking if nodejs is installed, which is necessary for coc"
+if [ ! $(command -v node) ]
+then 
+	echo -e "${RED} WARNING. ${NC} nodejs (node) wasn't found. Please install manually to use coc (autocompletion)."
+fi
+
 echo -e "\n\n\n"
 echo    "Installing Plugins to vim."
 echo -e "${RED}Ignore the first error message regarding colorscheme${NC}"
 
-vim +'PlugInstall --sync' +qa
+vim -es +'PlugInstall --sync' +qa
 
 echo    "Finished."

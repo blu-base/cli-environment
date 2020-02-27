@@ -1,0 +1,72 @@
+" Vim table mode
+" automatic table creator & formatter allowing one to create neat tables as you type.
+
+
+Plug 'dhruvasagar/vim-table-mode'
+
+
+" Start: using the plugin in the on-the-fly mode use :TableModeToggle mapped to \<Leader>tm by default (which means \ t m if you didn't override the by :let mapleader = ',' to have , t m).
+" 
+" Enter the first line, delimiting columns by the | symbol. The plugin reacts by inserting spaces between the text and the separator if you omit them:
+" 
+" | name | address | phone |
+" 
+" In the second line (without leaving Insert mode), enter | twice. The plugin will write a properly formatted horizontal line:
+" 
+" | name | address | phone |
+" |------+---------+-------|
+" 
+" When you enter the subsequent lines, the plugin will automatically adjust the formatting to match the text you’re entering every time you press |:
+" 
+" | name       | address | phone |
+" |------------+---------+-------|
+" | John Adams |
+" 
+" Go on until the table is ready:
+" 
+" | name            | address                  | phone      |
+" |-----------------+--------------------------+------------|
+" | John Adams      | 1600 Pennsylvania Avenue | 0123456789 |
+" |-----------------+--------------------------+------------|
+" | Sherlock Holmes | 221B Baker Street        | 0987654321 |
+" |-----------------+--------------------------+------------|
+" 
+" Then you can return to the first line and above it enter ||:
+" 
+" |-----------------+--------------------------+------------|
+" | name            | address                  | phone      |
+" |-----------------+--------------------------+------------|
+" | John Adams      | 1600 Pennsylvania Avenue | 0123456789 |
+" |-----------------+--------------------------+------------|
+" | Sherlock Holmes | 221B Baker Street        | 0987654321 |
+" |-----------------+--------------------------+------------|
+" 
+" Corner separators are adjustable:
+" 
+" Markdown Compatible Tables:
+" let g:table_mode_corner='|'
+" 
+" ReST Compatible Tables:
+" let g:table_mode_corner_corner='+'
+" let g:table_mode_header_fillchar='='
+" 
+" Moving Around:
+" Now you can move between cells using table mode motions [|, ]|, {| & }| to move left | right | up | down cells respectively. The left | right motions wrap around the table and move to the next | previous row after the last | first cell in the current row if one exists.
+"
+" Manipulating Table:
+" 
+"     Cell Text Object:
+" 
+"     Tableize provides a text object for manipulating table cells. Following the vim philosophy the you have i| & a| for the inner and around (including the immidiate right table separator) the table cell.
+" 
+"     Delete Row:
+" 
+"     You can use the \<Leader>tdd mapping defined by the option g:table_mode_delete_row_map to delete the current table row (provided you are within a table row), this can be preceeded with a [count] to delete multiple rows just like you would with 'dd'.
+" 
+"     Delete Column:
+" 
+"     You can use the \<Leader>tdc mapping defined by the option g:table_mode_delete_column_map to delete the entire current column (provided you are within a table row), this can also be preceeded with a [count] to delete multiple columns.
+" 
+" 
+
+" vim:ft=vim
