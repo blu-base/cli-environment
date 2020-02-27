@@ -58,6 +58,6 @@ echo -e "\n\n\n"
 echo    "Installing Plugins to vim."
 echo -e "${RED}Ignore the first error message regarding colorscheme${NC}"
 
-vim -es +'PlugInstall --sync' +qa
+vim +'PlugInstall --sync' +qa
 
 echo    "Finished."
