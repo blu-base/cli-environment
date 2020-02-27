@@ -19,10 +19,13 @@ fi
 # Set directory colors
 eval `dircolors ~/.dir_colors`
 
-## Terminal Size
-HEIGHT=60
-WIDTH=200
-echo -en "\e[8;${HEIGHT};${WIDTH}t"
+## mintty Terminal Size
+if [ "$TERM" = "MINTTY" ]
+then
+	HEIGHT=60
+	WIDTH=200
+	echo -en "\e[8;${HEIGHT};${WIDTH}t"
+fi
 
 ## Make bash append rather than overwrite the history on disk
 shopt -s histappend
